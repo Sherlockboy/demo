@@ -19,7 +19,6 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use UnitEnum;
 
 class PostResource extends Resource
 {
@@ -29,7 +28,10 @@ class PostResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'title';
 
-    protected static string | UnitEnum | null $navigationGroup = 'Blog';
+    public static function getNavigationGroup(): ?string
+    {
+        return __('filament.blog');
+    }
 
     protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 

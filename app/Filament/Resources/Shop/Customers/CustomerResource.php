@@ -16,7 +16,6 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use UnitEnum;
 
 class CustomerResource extends Resource
 {
@@ -26,7 +25,10 @@ class CustomerResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    protected static string | UnitEnum | null $navigationGroup = 'Shop';
+    public static function getNavigationGroup(): ?string
+    {
+        return __('filament.shop');
+    }
 
     protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-user-group';
 

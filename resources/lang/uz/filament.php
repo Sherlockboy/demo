@@ -5,6 +5,7 @@ return [
     // General
     'new_team' => 'Yangi jamoa',
     'shop' => 'Do\'kon',
+    'blog' => 'Blog',
     'products' => 'Mahsulotlar',
     'all' => 'Barchasi',
     'view' => 'Ko\'rish',

@@ -5,6 +5,7 @@ return [
     // General
     'new_team' => 'New team',
     'shop' => 'Shop',
+    'blog' => 'Blog',
     'products' => 'Products',
     'all' => 'All',
     'view' => 'View',

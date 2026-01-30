@@ -5,6 +5,7 @@ return [
     // General
     'new_team' => 'Новая команда',
     'shop' => 'Магазин',
+    'blog' => 'Блог',
     'products' => 'Товары',
     'all' => 'Все',
     'view' => 'Просмотр',
