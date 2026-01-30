@@ -44,7 +44,7 @@ class OrdersTable
                             ->money(),
                     ]),
                 TextColumn::make('shipping_price')
-                    ->label('Shipping cost')
+                    ->label(__('filament.shipping_cost'))
                     ->searchable()
                     ->sortable()
                     ->toggleable()
@@ -53,7 +53,7 @@ class OrdersTable
                             ->money(),
                     ]),
                 TextColumn::make('created_at')
-                    ->label('Order date')
+                    ->label(__('filament.order_date'))
                     ->date()
                     ->toggleable(),
             ])
@@ -61,7 +61,7 @@ class OrdersTable
                 TrashedFilter::make(),
 
                 Filter::make('created_at')
-                    ->label('Order date')
+                    ->label(__('filament.order_date'))
                     ->schema([
                         DatePicker::make('created_from')
                             ->placeholder(fn ($state): string => 'Dec 18, ' . now()->subYear()->format('Y')),
@@ -82,10 +82,10 @@ class OrdersTable
                     ->indicateUsing(function (array $data): array {
                         $indicators = [];
                         if ($data['created_from'] ?? null) {
-                            $indicators['created_from'] = 'Order from ' . Carbon::parse($data['created_from'])->toFormattedDateString();
+                            $indicators['created_from'] = __('filament.order_from') . Carbon::parse($data['created_from'])->toFormattedDateString();
                         }
                         if ($data['created_until'] ?? null) {
-                            $indicators['created_until'] = 'Order until ' . Carbon::parse($data['created_until'])->toFormattedDateString();
+                            $indicators['created_until'] = __('filament.order_until') . Carbon::parse($data['created_until'])->toFormattedDateString();
                         }
 
                         return $indicators;
@@ -98,14 +98,14 @@ class OrdersTable
                 DeleteBulkAction::make()
                     ->action(function (): void {
                         Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
+                            ->title(__('filament.cheeky_message'))
                             ->warning()
                             ->send();
                     }),
             ])
             ->groups([
                 Group::make('created_at')
-                    ->label('Order date')
+                    ->label(__('filament.order_date'))
                     ->date()
                     ->collapsible(),
             ]);

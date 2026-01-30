@@ -25,14 +25,14 @@ class CreateOrder extends CreateRecord
     protected function getSteps(): array
     {
         return [
-            Step::make('Order Details')
+            Step::make(__('filament.order_details'))
                 ->schema([
                     Section::make()
                         ->schema(OrderForm::getDetailsComponents())
                         ->columns(),
                 ]),
 
-            Step::make('Order Items')
+            Step::make(__('filament.order_items_step'))
                 ->schema([
                     Section::make()
                         ->schema([OrderForm::getItemsRepeater()]),
@@ -49,11 +49,12 @@ class CreateOrder extends CreateRecord
         $user = auth()->user();
 
         Notification::make()
-            ->title('New order')
+            ->title(__('filament.new_order'))
             ->icon('heroicon-o-shopping-bag')
             ->body("**{$order->customer?->name} ordered {$order->items->count()} products.**")
             ->actions([
                 Action::make('View')
+                    ->label(__('filament.view'))
                     ->url(OrderResource::getUrl('edit', ['record' => $order])),
             ])
             ->sendToDatabase($user);

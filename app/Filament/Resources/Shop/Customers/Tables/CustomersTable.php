@@ -20,7 +20,7 @@ class CustomersTable
                     ->searchable(isIndividual: true)
                     ->sortable(),
                 TextColumn::make('email')
-                    ->label('Email address')
+                    ->label(__('filament.email_address'))
                     ->searchable(isIndividual: true, isGlobal: false)
                     ->sortable(),
                 TextColumn::make('country')
@@ -39,7 +39,7 @@ class CustomersTable
                 DeleteBulkAction::make()
                     ->action(function (): void {
                         Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
+                            ->title(__('filament.cheeky_message'))
                             ->warning()
                             ->send();
                     }),

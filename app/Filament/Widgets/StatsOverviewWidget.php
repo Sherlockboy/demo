@@ -51,18 +51,18 @@ class StatsOverviewWidget extends BaseWidget
         };
 
         return [
-            Stat::make('Revenue', '$' . $formatNumber($revenue))
-                ->description('32k increase')
+            Stat::make(__('filament.revenue'), '$' . $formatNumber($revenue))
+                ->description(__('filament.increase_32k'))
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->chart([7, 2, 10, 3, 15, 4, 17])
                 ->color('success'),
-            Stat::make('New customers', $formatNumber($newCustomers))
-                ->description('3% decrease')
+            Stat::make(__('filament.new_customers'), $formatNumber($newCustomers))
+                ->description(__('filament.decrease_3_percent'))
                 ->descriptionIcon('heroicon-m-arrow-trending-down')
                 ->chart([17, 16, 14, 15, 14, 13, 12])
                 ->color('danger'),
-            Stat::make('New orders', $formatNumber($newOrders))
-                ->description('7% increase')
+            Stat::make(__('filament.new_orders'), $formatNumber($newOrders))
+                ->description(__('filament.increase_7_percent'))
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->chart([15, 4, 10, 2, 12, 4, 12])
                 ->color('success'),

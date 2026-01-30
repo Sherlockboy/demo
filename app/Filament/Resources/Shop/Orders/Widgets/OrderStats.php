@@ -32,14 +32,14 @@ class OrderStats extends BaseWidget
             ->count();
 
         return [
-            Stat::make('Orders', $this->getPageTableQuery()->count())
+            Stat::make(__('filament.orders'), $this->getPageTableQuery()->count())
                 ->chart(
                     $orderData
                         ->map(fn (TrendValue $value) => $value->aggregate)
                         ->toArray()
                 ),
-            Stat::make('Open orders', $this->getPageTableQuery()->whereIn('status', ['open', 'processing'])->count()),
-            Stat::make('Average price', number_format((float) $this->getPageTableQuery()->avg('total_price'), 2)),
+            Stat::make(__('filament.open_orders'), $this->getPageTableQuery()->whereIn('status', ['open', 'processing'])->count()),
+            Stat::make(__('filament.average_price'), number_format((float) $this->getPageTableQuery()->avg('total_price'), 2)),
         ];
     }
 }

@@ -53,7 +53,7 @@ class PostsTable
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('published_at')
-                    ->label('Publishing date')
+                    ->label(__('filament.publishing_date'))
                     ->date(),
             ])
             ->filters([
@@ -78,10 +78,10 @@ class PostsTable
                     ->indicateUsing(function (array $data): array {
                         $indicators = [];
                         if ($data['published_from'] ?? null) {
-                            $indicators['published_from'] = 'Published from ' . Carbon::parse($data['published_from'])->toFormattedDateString();
+                            $indicators['published_from'] = __('filament.published_from') . Carbon::parse($data['published_from'])->toFormattedDateString();
                         }
                         if ($data['published_until'] ?? null) {
-                            $indicators['published_until'] = 'Published until ' . Carbon::parse($data['published_until'])->toFormattedDateString();
+                            $indicators['published_until'] = __('filament.published_until') . Carbon::parse($data['published_until'])->toFormattedDateString();
                         }
 
                         return $indicators;
@@ -98,7 +98,7 @@ class PostsTable
                 DeleteBulkAction::make()
                     ->action(function (): void {
                         Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
+                            ->title(__('filament.cheeky_message'))
                             ->warning()
                             ->send();
                     }),

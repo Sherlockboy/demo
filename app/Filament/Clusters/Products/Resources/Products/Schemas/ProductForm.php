@@ -51,7 +51,7 @@ class ProductForm
                             ])
                             ->columns(2),
 
-                        Section::make('Images')
+                        Section::make(__('filament.images'))
                             ->schema([
                                 SpatieMediaLibraryFileUpload::make('media')
                                     ->collection('product-images')
@@ -63,7 +63,7 @@ class ProductForm
                             ])
                             ->collapsible(),
 
-                        Section::make('Pricing')
+                        Section::make(__('filament.pricing'))
                             ->schema([
                                 TextInput::make('price')
                                     ->numeric()
@@ -71,54 +71,54 @@ class ProductForm
                                     ->required(),
 
                                 TextInput::make('old_price')
-                                    ->label('Compare at price')
+                                    ->label(__('filament.compare_at_price'))
                                     ->numeric()
                                     ->rules(['regex:/^\d{1,6}(\.\d{0,2})?$/'])
                                     ->required(),
 
                                 TextInput::make('cost')
-                                    ->label('Cost per item')
-                                    ->helperText('Customers won\'t see this price.')
+                                    ->label(__('filament.cost_per_item'))
+                                    ->helperText(__('filament.customers_wont_see_price'))
                                     ->numeric()
                                     ->rules(['regex:/^\d{1,6}(\.\d{0,2})?$/'])
                                     ->required(),
                             ])
                             ->columns(2),
-                        Section::make('Inventory')
+                        Section::make(__('filament.inventory'))
                             ->schema([
                                 TextInput::make('sku')
-                                    ->label('SKU (Stock Keeping Unit)')
+                                    ->label(__('filament.sku_full'))
                                     ->unique(Product::class, 'sku', ignoreRecord: true)
                                     ->maxLength(255)
                                     ->required(),
 
                                 TextInput::make('barcode')
-                                    ->label('Barcode (ISBN, UPC, GTIN, etc.)')
+                                    ->label(__('filament.barcode_full'))
                                     ->unique(Product::class, 'barcode', ignoreRecord: true)
                                     ->maxLength(255)
                                     ->required(),
 
                                 TextInput::make('qty')
-                                    ->label('Quantity')
+                                    ->label(__('filament.quantity'))
                                     ->numeric()
                                     ->rules(['integer', 'min:0'])
                                     ->required(),
 
                                 TextInput::make('security_stock')
-                                    ->helperText('The safety stock is the limit stock for your products which alerts you if the product stock will soon be out of stock.')
+                                    ->helperText(__('filament.safety_stock_helper'))
                                     ->numeric()
                                     ->rules(['integer', 'min:0'])
                                     ->required(),
                             ])
                             ->columns(2),
 
-                        Section::make('Shipping')
+                        Section::make(__('filament.shipping'))
                             ->schema([
                                 Checkbox::make('backorder')
-                                    ->label('This product can be returned'),
+                                    ->label(__('filament.product_can_be_returned')),
 
                                 Checkbox::make('requires_shipping')
-                                    ->label('This product will be shipped'),
+                                    ->label(__('filament.product_will_be_shipped')),
                             ])
                             ->columns(2),
                     ])
@@ -126,20 +126,20 @@ class ProductForm
 
                 Group::make()
                     ->schema([
-                        Section::make('Status')
+                        Section::make(__('filament.status'))
                             ->schema([
                                 Toggle::make('is_visible')
-                                    ->label('Visibility')
-                                    ->helperText('This product will be hidden from all sales channels.')
+                                    ->label(__('filament.visibility'))
+                                    ->helperText(__('filament.product_hidden_from_channels'))
                                     ->default(true),
 
                                 DatePicker::make('published_at')
-                                    ->label('Publishing date')
+                                    ->label(__('filament.publishing_date'))
                                     ->default(now())
                                     ->required(),
                             ]),
 
-                        Section::make('Associations')
+                        Section::make(__('filament.associations'))
                             ->schema([
                                 Select::make('shop_brand_id')
                                     ->relationship('brand', 'name')

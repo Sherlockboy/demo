@@ -16,9 +16,9 @@ class CategoryInfolist
                 TextEntry::make('slug'),
                 TextEntry::make('description'),
                 IconEntry::make('is_visible')
-                    ->label('Visibility'),
+                    ->label(__('filament.visibility')),
                 TextEntry::make('updated_at')
-                    ->label('Last modified at')
+                    ->label(__('filament.last_modified_at'))
                     ->dateTime(),
             ])
             ->columns(1)

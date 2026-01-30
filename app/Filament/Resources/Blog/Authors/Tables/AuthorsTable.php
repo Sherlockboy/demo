@@ -26,7 +26,7 @@ class AuthorsTable
                             ->alignLeft(),
 
                         TextColumn::make('email')
-                            ->label('Email address')
+                            ->label(__('filament.email_address'))
                             ->searchable()
                             ->sortable()
                             ->color('gray')
@@ -36,7 +36,7 @@ class AuthorsTable
                     Stack::make([
                         TextColumn::make('github_handle')
                             ->icon('icon-github')
-                            ->label('GitHub handle')
+                            ->label(__('filament.github_handle'))
                             ->alignLeft(),
 
                         TextColumn::make('twitter_handle')
@@ -56,7 +56,7 @@ class AuthorsTable
                 DeleteBulkAction::make()
                     ->action(function (): void {
                         Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
+                            ->title(__('filament.cheeky_message'))
                             ->warning()
                             ->send();
                     }),

@@ -41,7 +41,7 @@ class CommentsRelationManager extends RelationManager
                     ->required(),
 
                 Toggle::make('is_visible')
-                    ->label('Public visibility')
+                    ->label(__('filament.public_visibility'))
                     ->default(true),
 
                 RichEditor::make('content')
@@ -57,7 +57,7 @@ class CommentsRelationManager extends RelationManager
                 TextEntry::make('title'),
                 TextEntry::make('customer.name'),
                 IconEntry::make('is_visible')
-                    ->label('Public visibility'),
+                    ->label(__('filament.public_visibility')),
                 TextEntry::make('content')
                     ->markdown(),
             ]);
@@ -76,7 +76,7 @@ class CommentsRelationManager extends RelationManager
                     ->sortable(),
 
                 IconColumn::make('is_visible')
-                    ->label('Public visibility')
+                    ->label(__('filament.public_visibility'))
                     ->sortable(),
             ])
             ->filters([
@@ -89,7 +89,7 @@ class CommentsRelationManager extends RelationManager
                         $user = auth()->user();
 
                         Notification::make()
-                            ->title('New comment')
+                            ->title(__('filament.new_comment'))
                             ->icon('heroicon-o-chat-bubble-bottom-center-text')
                             ->body("**{$record->customer->name} commented on product ({$record->commentable->name}).**")
                             ->sendToDatabase($user);

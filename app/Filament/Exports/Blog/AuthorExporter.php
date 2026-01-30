@@ -15,16 +15,16 @@ class AuthorExporter extends Exporter
     {
         return [
             ExportColumn::make('id')
-                ->label('ID'),
+                ->label(__('filament.id')),
             ExportColumn::make('name'),
             ExportColumn::make('email')
-                ->label('Email address'),
+                ->label(__('filament.email_address')),
             ExportColumn::make('github_handle')
-                ->label('GitHub handle'),
+                ->label(__('filament.github_handle')),
             ExportColumn::make('twitter_handle'),
             ExportColumn::make('created_at'),
             ExportColumn::make('updated_at')
-                ->label('Last modified at'),
+                ->label(__('filament.last_modified_at')),
         ];
     }
 

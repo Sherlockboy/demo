@@ -10,7 +10,7 @@ class RegisterTeam extends RegisterTenant
 {
     public static function getLabel(): string
     {
-        return 'New team';
+        return __('filament.new_team');
     }
 
     public function form(Schema $schema): Schema

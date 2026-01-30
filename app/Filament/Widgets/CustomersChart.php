@@ -6,7 +6,10 @@ use Filament\Widgets\ChartWidget;
 
 class CustomersChart extends ChartWidget
 {
-    protected ?string $heading = 'Total customers';
+    public function getHeading(): ?string
+    {
+        return __('filament.total_customers');
+    }
 
     protected static ?int $sort = 2;
 
@@ -20,7 +23,7 @@ class CustomersChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Customers',
+                    'label' => __('filament.customers'),
                     'data' => [4344, 5676, 6798, 7890, 8987, 9388, 10343, 10524, 13664, 14345, 15753, 17332],
                     'fill' => 'start',
                 ],

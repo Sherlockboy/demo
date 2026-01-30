@@ -42,7 +42,7 @@ class BrandForm
                             ->url(),
 
                         Toggle::make('is_visible')
-                            ->label('Visibility')
+                            ->label(__('filament.visibility'))
                             ->default(true),
 
                         RichEditor::make('description'),
@@ -54,7 +54,7 @@ class BrandForm
                             ->state(fn (Brand $record): ?string => $record->created_at?->diffForHumans()),
 
                         TextEntry::make('updated_at')
-                            ->label('Last modified at')
+                            ->label(__('filament.last_modified_at'))
                             ->state(fn (Brand $record): ?string => $record->updated_at?->diffForHumans()),
                     ])
                     ->columnSpan(['lg' => 1])

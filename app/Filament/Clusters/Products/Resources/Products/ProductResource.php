@@ -28,7 +28,10 @@ class ProductResource extends Resource
 
     protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-bolt';
 
-    protected static ?string $navigationLabel = 'Products';
+    public static function getNavigationLabel(): string
+    {
+        return __('filament.products');
+    }
 
     protected static ?int $navigationSort = 0;
 

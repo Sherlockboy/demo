@@ -24,7 +24,7 @@ class LatestOrders extends BaseWidget
             ->defaultSort('created_at', 'desc')
             ->columns([
                 TextColumn::make('created_at')
-                    ->label('Order date')
+                    ->label(__('filament.order_date'))
                     ->date()
                     ->sortable(),
                 TextColumn::make('number')

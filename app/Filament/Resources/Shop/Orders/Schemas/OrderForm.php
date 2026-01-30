@@ -34,11 +34,11 @@ class OrderForm
                             ->schema(static::getDetailsComponents())
                             ->columns(2),
 
-                        Section::make('Order items')
+                        Section::make(__('filament.order_items'))
                             ->afterHeader([
                                 Action::make('reset')
-                                    ->modalHeading('Are you sure?')
-                                    ->modalDescription('All existing items will be removed from the order.')
+                                    ->modalHeading(__('filament.are_you_sure'))
+                                    ->modalDescription(__('filament.order_items_will_be_removed'))
                                     ->requiresConfirmation()
                                     ->color('danger')
                                     ->action(fn (Set $set) => $set('items', [])),
@@ -52,11 +52,11 @@ class OrderForm
                 Section::make()
                     ->schema([
                         TextEntry::make('created_at')
-                            ->label('Order date')
+                            ->label(__('filament.order_date'))
                             ->state(fn (Order $record): ?string => $record->created_at?->diffForHumans()),
 
                         TextEntry::make('updated_at')
-                            ->label('Last modified at')
+                            ->label(__('filament.last_modified_at'))
                             ->state(fn (Order $record): ?string => $record->updated_at?->diffForHumans()),
                     ])
                     ->columnSpan(['lg' => 1])
@@ -89,7 +89,7 @@ class OrderForm
                         ->maxLength(255),
 
                     TextInput::make('email')
-                        ->label('Email address')
+                        ->label(__('filament.email_address'))
                         ->required()
                         ->email()
                         ->maxLength(255)
@@ -100,8 +100,8 @@ class OrderForm
                 ])
                 ->createOptionAction(function (Action $action) {
                     return $action
-                        ->modalHeading('Create customer')
-                        ->modalSubmitActionLabel('Create customer')
+                        ->modalHeading(__('filament.create_customer'))
+                        ->modalSubmitActionLabel(__('filament.create_customer'))
                         ->modalWidth('lg');
                 }),
 
@@ -129,15 +129,15 @@ class OrderForm
         return Repeater::make('items')
             ->relationship()
             ->table([
-                TableColumn::make('Product'),
-                TableColumn::make('Quantity')
+                TableColumn::make('Product')->heading(__('filament.product')),
+                TableColumn::make('Quantity')->heading(__('filament.quantity'))
                     ->width(100),
-                TableColumn::make('Unit Price')
+                TableColumn::make('Unit Price')->heading(__('filament.unit_price'))
                     ->width(110),
             ])
             ->schema([
                 Select::make('shop_product_id')
-                    ->label('Product')
+                    ->label(__('filament.product'))
                     ->options(Product::query()->pluck('name', 'id'))
                     ->required()
                     ->reactive()
@@ -147,7 +147,7 @@ class OrderForm
                     ->searchable(),
 
                 TextInput::make('qty')
-                    ->label('Quantity')
+                    ->label(__('filament.quantity'))
                     ->numeric()
                     ->default(1)
                     ->required(),
@@ -160,7 +160,7 @@ class OrderForm
             ])
             ->extraItemActions([
                 Action::make('openProduct')
-                    ->tooltip('Open product')
+                    ->tooltip(__('filament.open_product'))
                     ->icon('heroicon-m-arrow-top-right-on-square')
                     ->url(function (array $arguments, Repeater $component): ?string {
                         $itemData = $component->getRawItemState($arguments['item']);

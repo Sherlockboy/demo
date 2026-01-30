@@ -25,17 +25,17 @@ class CategoryImporter extends Importer
             ImportColumn::make('description')
                 ->example('This is the description for Category A.'),
             ImportColumn::make('is_visible')
-                ->label('Visibility')
+                ->label(__('filament.visibility'))
                 ->requiredMapping()
                 ->boolean()
                 ->rules(['required', 'boolean'])
                 ->example('yes'),
             ImportColumn::make('seo_title')
-                ->label('SEO title')
+                ->label(__('filament.seo_title'))
                 ->rules(['max:60'])
                 ->example('Awesome Category A'),
             ImportColumn::make('seo_description')
-                ->label('SEO description')
+                ->label(__('filament.seo_description'))
                 ->rules(['max:160'])
                 ->example('Wow! It\'s just so amazing.'),
         ];

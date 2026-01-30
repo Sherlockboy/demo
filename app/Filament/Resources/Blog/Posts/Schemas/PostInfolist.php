@@ -26,7 +26,7 @@ class PostInfolist
                                         TextEntry::make('title'),
                                         TextEntry::make('slug'),
                                         TextEntry::make('published_at')
-                                            ->label('Publishing date')
+                                            ->label(__('filament.publishing_date'))
                                             ->badge()
                                             ->date()
                                             ->color('success'),
@@ -43,7 +43,7 @@ class PostInfolist
                                 ->grow(false),
                         ])->from('lg'),
                     ]),
-                Section::make('Content')
+                Section::make(__('filament.content'))
                     ->schema([
                         TextEntry::make('content')
                             ->prose()

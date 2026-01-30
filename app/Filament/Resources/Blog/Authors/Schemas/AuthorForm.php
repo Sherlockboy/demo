@@ -18,7 +18,7 @@ class AuthorForm
                     ->maxLength(255),
 
                 TextInput::make('email')
-                    ->label('Email address')
+                    ->label(__('filament.email_address'))
                     ->required()
                     ->maxLength(255)
                     ->email()
@@ -28,7 +28,7 @@ class AuthorForm
                     ->columnSpan('full'),
 
                 TextInput::make('github_handle')
-                    ->label('GitHub handle')
+                    ->label(__('filament.github_handle'))
                     ->maxLength(255),
 
                 TextInput::make('twitter_handle')

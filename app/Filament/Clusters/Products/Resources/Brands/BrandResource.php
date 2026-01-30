@@ -26,7 +26,10 @@ class BrandResource extends Resource
 
     protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-bookmark-square';
 
-    protected static ?string $navigationParentItem = 'Products';
+    public static function getNavigationParentItem(): ?string
+    {
+        return __('filament.products');
+    }
 
     protected static ?int $navigationSort = 2;
 

@@ -29,7 +29,7 @@ class ListOrders extends ListRecords
     public function getTabs(): array
     {
         return [
-            null => Tab::make('All'),
+            null => Tab::make(__('filament.all')),
             'new' => Tab::make()->query(fn ($query) => $query->where('status', 'new')),
             'processing' => Tab::make()->query(fn ($query) => $query->where('status', 'processing')),
             'shipped' => Tab::make()->query(fn ($query) => $query->where('status', 'shipped')),

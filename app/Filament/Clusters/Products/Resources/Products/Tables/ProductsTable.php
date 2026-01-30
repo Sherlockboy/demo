@@ -36,7 +36,7 @@ class ProductsTable
                     ->toggleable(),
 
                 IconColumn::make('is_visible')
-                    ->label('Visibility')
+                    ->label(__('filament.visibility'))
                     ->sortable()
                     ->toggleable(),
 
@@ -45,13 +45,13 @@ class ProductsTable
                     ->sortable(),
 
                 TextColumn::make('sku')
-                    ->label('SKU')
+                    ->label(__('filament.sku'))
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
 
                 TextColumn::make('qty')
-                    ->label('Quantity')
+                    ->label(__('filament.quantity'))
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
@@ -63,7 +63,7 @@ class ProductsTable
                     ->toggledHiddenByDefault(),
 
                 TextColumn::make('published_at')
-                    ->label('Publishing date')
+                    ->label(__('filament.publishing_date'))
                     ->date()
                     ->sortable()
                     ->toggleable()
@@ -75,29 +75,29 @@ class ProductsTable
                         TextConstraint::make('name'),
                         TextConstraint::make('slug'),
                         TextConstraint::make('sku')
-                            ->label('SKU (Stock Keeping Unit)'),
+                            ->label(__('filament.sku_full')),
                         TextConstraint::make('barcode')
-                            ->label('Barcode (ISBN, UPC, GTIN, etc.)'),
+                            ->label(__('filament.barcode_full')),
                         TextConstraint::make('description'),
                         NumberConstraint::make('old_price')
-                            ->label('Compare at price')
+                            ->label(__('filament.compare_at_price'))
                             ->icon('heroicon-m-currency-dollar'),
                         NumberConstraint::make('price')
                             ->icon('heroicon-m-currency-dollar'),
                         NumberConstraint::make('cost')
-                            ->label('Cost per item')
+                            ->label(__('filament.cost_per_item'))
                             ->icon('heroicon-m-currency-dollar'),
                         NumberConstraint::make('qty')
-                            ->label('Quantity'),
+                            ->label(__('filament.quantity')),
                         NumberConstraint::make('security_stock'),
                         BooleanConstraint::make('is_visible')
-                            ->label('Visibility'),
+                            ->label(__('filament.visibility')),
                         BooleanConstraint::make('featured'),
                         BooleanConstraint::make('backorder'),
                         BooleanConstraint::make('requires_shipping')
                             ->icon('heroicon-m-truck'),
                         DateConstraint::make('published_at')
-                            ->label('Publishing date'),
+                            ->label(__('filament.publishing_date')),
                     ])
                     ->constraintPickerColumns(2),
             ], layout: FiltersLayout::AboveContentCollapsible)
@@ -109,7 +109,7 @@ class ProductsTable
                 DeleteBulkAction::make()
                     ->action(function (): void {
                         Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
+                            ->title(__('filament.cheeky_message'))
                             ->warning()
                             ->send();
                     }),

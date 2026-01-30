@@ -22,10 +22,10 @@ class CategoriesTable
                     ->searchable()
                     ->sortable(),
                 IconColumn::make('is_visible')
-                    ->label('Visibility')
+                    ->label(__('filament.visibility'))
                     ->sortable(),
                 TextColumn::make('updated_at')
-                    ->label('Last modified at')
+                    ->label(__('filament.last_modified_at'))
                     ->date()
                     ->sortable(),
             ])
@@ -39,7 +39,7 @@ class CategoriesTable
                 DeleteBulkAction::make()
                     ->action(function (): void {
                         Notification::make()
-                            ->title('Now, now, don\'t be cheeky, leave some records for others to play with!')
+                            ->title(__('filament.cheeky_message'))
                             ->warning()
                             ->send();
                     }),

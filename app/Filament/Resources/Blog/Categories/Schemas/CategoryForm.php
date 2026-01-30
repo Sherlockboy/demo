@@ -33,7 +33,7 @@ class CategoryForm
                     ->columnSpan('full'),
 
                 Toggle::make('is_visible')
-                    ->label('Visibility')
+                    ->label(__('filament.visibility'))
                     ->default(true),
             ]);
     }

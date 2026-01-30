@@ -50,13 +50,13 @@ class PostForm
                             ->required(),
 
                         DatePicker::make('published_at')
-                            ->label('Publishing date'),
+                            ->label(__('filament.publishing_date')),
 
                         SpatieTagsInput::make('tags'),
                     ])
                     ->columns(2),
 
-                Section::make('Image')
+                Section::make(__('filament.image'))
                     ->schema([
                         SpatieMediaLibraryFileUpload::make('image')
                             ->collection('post-images')

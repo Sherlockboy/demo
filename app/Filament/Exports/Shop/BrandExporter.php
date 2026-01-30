@@ -15,13 +15,13 @@ class BrandExporter extends Exporter
     {
         return [
             ExportColumn::make('id')
-                ->label('ID'),
+                ->label(__('filament.id')),
             ExportColumn::make('name'),
             ExportColumn::make('slug'),
             ExportColumn::make('website'),
             ExportColumn::make('created_at'),
             ExportColumn::make('updated_at')
-                ->label('Last modified at'),
+                ->label(__('filament.last_modified_at')),
         ];
     }
 

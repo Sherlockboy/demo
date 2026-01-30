@@ -6,7 +6,10 @@ use Filament\Widgets\ChartWidget;
 
 class OrdersChart extends ChartWidget
 {
-    protected ?string $heading = 'Orders per month';
+    public function getHeading(): ?string
+    {
+        return __('filament.orders_per_month');
+    }
 
     protected static ?int $sort = 1;
 
@@ -20,7 +23,7 @@ class OrdersChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Orders',
+                    'label' => __('filament.orders'),
                     'data' => [2433, 3454, 4566, 3300, 5545, 5765, 6787, 8767, 7565, 8576, 9686, 8996],
                     'fill' => 'start',
                 ],
