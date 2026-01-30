@@ -43,8 +43,8 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogo(fn () => view('filament.app.logo'))
             ->brandLogoHeight('1.25rem')
             ->navigationGroups([
-                'Shop',
-                'Blog',
+                __('filament.shop'),
+                __('filament.blog'),
             ])
             ->databaseNotifications()
             ->middleware([
